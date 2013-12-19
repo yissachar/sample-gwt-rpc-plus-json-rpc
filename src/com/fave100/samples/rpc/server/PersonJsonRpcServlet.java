@@ -13,12 +13,12 @@ import com.googlecode.jsonrpc4j.JsonRpcServer;
 @SuppressWarnings("serial")
 public class PersonJsonRpcServlet extends HttpServlet {
 	
-	private PersonService faveItemService;
+	private PersonService personService;
 	private JsonRpcServer jsonRpcServer;
 		
 	public void init(ServletConfig config) {
-		this.faveItemService = new PersonServiceImpl();
-		this.jsonRpcServer = new JsonRpcServer(this.faveItemService, PersonService.class);
+		this.personService = new PersonServiceImpl();
+		this.jsonRpcServer = new JsonRpcServer(this.personService, PersonService.class);
 	}
 	
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
